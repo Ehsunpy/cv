@@ -249,12 +249,252 @@ pre code {
 }
 
 /* Canvas background */
-#neuralCanvas {
+#neuralCanvas,
+#vanGoghCanvas {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
+  pointer-events: auto; /* allows interactive brush & light motion */
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Vincent van Gogh "The Starry Night" - Authentic Masterpiece & Tactile Canvas
+   ========================================================================== */
+
+/* 1. Authentic Masterpiece Painting Container */
+.starry-night-artwork-container {
+  position: absolute;
+  inset: 0;
   z-index: 0;
+  overflow: hidden;
+}
+
+.starry-night-painting-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 70% 30%;
+  filter: saturate(1.2) contrast(1.15) brightness(0.9);
+  transform: scale(1.04);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0.68;
+}
+
+[data-theme="light"] .starry-night-painting-img {
+  opacity: 0.35;
+  filter: saturate(1.1) contrast(1.05) brightness(1.05);
+}
+
+/* 2. Tangible Coarse Canvas & Oil Paint Relief Overlay */
+.starry-night-tactile-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23777777'/%3E%3Crect x='0' y='0' width='8' height='8' fill='%238c8c8c'/%3E%3Cline x1='0' y1='1' x2='8' y2='1' stroke='%23ffffff' stroke-width='1.2' opacity='0.85'/%3E%3Cline x1='0' y1='7' x2='8' y2='7' stroke='%23000000' stroke-width='1.4' opacity='0.9'/%3E%3Crect x='8' y='0' width='8' height='8' fill='%23636363'/%3E%3Cline x1='9' y1='0' x2='9' y2='8' stroke='%23ffffff' stroke-width='1.2' opacity='0.85'/%3E%3Cline x1='15' y1='0' x2='15' y2='8' stroke='%23000000' stroke-width='1.4' opacity='0.9'/%3E%3Crect x='0' y='8' width='8' height='8' fill='%23636363'/%3E%3Cline x1='1' y1='8' x2='1' y2='16' stroke='%23ffffff' stroke-width='1.2' opacity='0.85'/%3E%3Cline x1='7' y1='8' x2='7' y2='16' stroke='%23000000' stroke-width='1.4' opacity='0.9'/%3E%3Crect x='8' y='8' width='8' height='8' fill='%238c8c8c'/%3E%3Cline x1='8' y1='9' x2='16' y2='9' stroke='%23ffffff' stroke-width='1.2' opacity='0.85'/%3E%3Cline x1='8' y1='15' x2='16' y2='15' stroke='%23000000' stroke-width='1.4' opacity='0.9'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.08) 0px, rgba(0, 0, 0, 0.08) 2px, transparent 2px, transparent 6px);
+  background-size: 16px 16px, 8px 8px;
+  mix-blend-mode: overlay;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* 3. Deep Atmospheric Vignette */
+.starry-night-vignette {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 75% 25%, transparent 15%, rgba(5, 7, 13, 0.5) 60%, rgba(5, 7, 13, 0.96) 100%),
+    linear-gradient(to bottom, rgba(5, 7, 13, 0.35) 0%, transparent 30%, rgba(5, 7, 13, 0.88) 85%, #05070d 100%);
+  pointer-events: none;
+}
+
+/* 4. Page-wide Canvas Texture Overlay */
+.van-gogh-canvas-texture {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.46;
+  mix-blend-mode: overlay;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%237a7a7a'/%3E%3Crect x='0' y='0' width='8' height='8' fill='%238c8c8c'/%3E%3Cline x1='0' y1='1' x2='8' y2='1' stroke='%23ffffff' stroke-width='1.2' opacity='0.85'/%3E%3Cline x1='0' y1='7' x2='8' y2='7' stroke='%23000000' stroke-width='1.4' opacity='0.9'/%3E%3Crect x='8' y='0' width='8' height='8' fill='%23636363'/%3E%3Cline x1='9' y1='0' x2='9' y2='8' stroke='%23ffffff' stroke-width='1.2' opacity='0.85'/%3E%3Cline x1='15' y1='0' x2='15' y2='8' stroke='%23000000' stroke-width='1.4' opacity='0.9'/%3E%3Crect x='0' y='8' width='8' height='8' fill='%23636363'/%3E%3Cline x1='1' y1='8' x2='1' y2='16' stroke='%23ffffff' stroke-width='1.2' opacity='0.85'/%3E%3Cline x1='7' y1='8' x2='7' y2='16' stroke='%23000000' stroke-width='1.4' opacity='0.9'/%3E%3Crect x='8' y='8' width='8' height='8' fill='%238c8c8c'/%3E%3Cline x1='8' y1='9' x2='16' y2='9' stroke='%23ffffff' stroke-width='1.2' opacity='0.85'/%3E%3Cline x1='8' y1='15' x2='16' y2='15' stroke='%23000000' stroke-width='1.4' opacity='0.9'/%3E%3Ccircle cx='4' cy='4' r='1.2' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='12' cy='12' r='1.2' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='12' cy='4' r='1.2' fill='%23000000' opacity='0.6'/%3E%3Ccircle cx='4' cy='12' r='1.2' fill='%23000000' opacity='0.6'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.08) 0px, rgba(0, 0, 0, 0.08) 2px, transparent 2px, transparent 6px);
+  background-size: 16px 16px, 12px 12px;
+  transition: opacity 0.3s ease;
+}
+
+[data-theme="light"] .van-gogh-canvas-texture {
+  opacity: 0.32;
+  mix-blend-mode: multiply;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%23c0c0c0'/%3E%3Crect x='0' y='0' width='8' height='8' fill='%23d8d8d8'/%3E%3Cline x1='0' y1='1' x2='8' y2='1' stroke='%23ffffff' stroke-width='1.2' opacity='0.9'/%3E%3Cline x1='0' y1='7' x2='8' y2='7' stroke='%23000000' stroke-width='1.2' opacity='0.5'/%3E%3Crect x='8' y='0' width='8' height='8' fill='%23ababab'/%3E%3Cline x1='9' y1='0' x2='9' y2='8' stroke='%23ffffff' stroke-width='1.2' opacity='0.9'/%3E%3Cline x1='15' y1='0' x2='15' y2='8' stroke='%23000000' stroke-width='1.2' opacity='0.5'/%3E%3Crect x='0' y='8' width='8' height='8' fill='%23ababab'/%3E%3Cline x1='1' y1='8' x2='1' y2='16' stroke='%23ffffff' stroke-width='1.2' opacity='0.9'/%3E%3Cline x1='7' y1='8' x2='7' y2='16' stroke='%23000000' stroke-width='1.2' opacity='0.5'/%3E%3Crect x='8' y='8' width='8' height='8' fill='%23d8d8d8'/%3E%3Cline x1='8' y1='9' x2='16' y2='9' stroke='%23ffffff' stroke-width='1.2' opacity='0.9'/%3E%3Cline x1='8' y1='15' x2='16' y2='15' stroke='%23000000' stroke-width='1.2' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* 2. Interactive Van Gogh Floating Control Pill */
+.van-gogh-pill {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 25;
+  font-family: 'Vazirmatn', sans-serif;
+  user-select: none;
+}
+
+.van-gogh-pill-inner {
+  position: relative;
+}
+
+.vg-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  border-radius: 9999px;
+  background: rgba(11, 16, 28, 0.85);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px -2px rgba(245, 158, 11, 0.25), 0 0 10px rgba(56, 189, 248, 0.15);
+  color: #fef08a;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.vg-pill-btn:hover {
+  background: rgba(17, 24, 39, 0.95);
+  border-color: rgba(250, 204, 21, 0.7);
+  box-shadow: 0 6px 24px -2px rgba(245, 158, 11, 0.45), 0 0 16px rgba(56, 189, 248, 0.3);
+  transform: translateY(-1px);
+}
+
+.vg-palette-icon {
+  font-size: 0.95rem;
+  filter: drop-shadow(0 0 4px rgba(245, 158, 11, 0.6));
+}
+
+.vg-live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: #f59e0b;
+  box-shadow: 0 0 8px #facc15;
+  animation: vg-dot-pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes vg-dot-pulse {
+  0%, 100% { opacity: 0.4; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.25); }
+}
+
+.vg-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  width: 270px;
+  background: rgba(9, 13, 24, 0.96);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  backdrop-filter: blur(16px);
+  border-radius: 0.85rem;
+  padding: 0.85rem;
+  box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 158, 11, 0.15);
+  animation: vg-fade-in 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  direction: rtl;
+  text-align: right;
+  z-index: 40;
+}
+
+@keyframes vg-fade-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.vg-dropdown-header {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.75rem;
+}
+
+.vg-control-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+  font-size: 0.74rem;
+  color: #cbd5e1;
+}
+
+.vg-btn-group {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.vg-btn {
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.4rem;
+  font-size: 0.7rem;
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.vg-btn:hover {
+  background: rgba(51, 65, 85, 0.9);
+  color: #f8fafc;
+}
+
+.vg-btn.active {
+  background: rgba(245, 158, 11, 0.25);
+  border-color: rgba(245, 158, 11, 0.6);
+  color: #fef08a;
+  font-weight: 600;
+}
+
+/* 3. Van Gogh Impressionist UI Highlights */
+.vg-card-border {
+  position: relative;
+}
+
+.vg-card-border::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.4), rgba(56, 189, 248, 0.25), rgba(30, 64, 175, 0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.vg-card-border:hover::after {
+  opacity: 1;
+  background: linear-gradient(135deg, rgba(250, 204, 21, 0.7), rgba(56, 189, 248, 0.5), rgba(129, 140, 248, 0.6));
+}
+
+/* Van Gogh Starry Night Fluid Section Divider */
+.vg-wave-divider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.vg-wave-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 54px;
 }

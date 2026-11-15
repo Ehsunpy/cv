@@ -53,13 +53,28 @@
 <body class="bg-[#05070d] text-slate-100 font-vazir relative min-h-screen selection:bg-cyan-500/30 selection:text-cyan-200">
 
   <!-- ========================================================================
-       Background Effects: Grid, Radial Mask, Aurora Blur Blobs
+       Vincent van Gogh "The Starry Night" - Canvas Texture & Background Effects
        ======================================================================== -->
+  <!-- Authentic Fine Art Linen & Oil Impasto Canvas Texture Overlay -->
+  <div class="van-gogh-canvas-texture" aria-hidden="true"></div>
+
+  <!-- Vincent van Gogh 3D Impasto Surface Relief Filter -->
+  <svg class="absolute w-0 h-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <filter id="vanGoghImpastoRelief" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.04 0.04" numOctaves="4" result="noise" />
+      <feDiffuseLighting in="noise" lighting-color="#ffffff" surfaceScale="2.8" result="light">
+        <feDistantLight azimuth="45" elevation="55" />
+      </feDiffuseLighting>
+      <feBlend mode="multiply" in="SourceGraphic" in2="light" />
+    </filter>
+  </svg>
+
+  <!-- Background Grids & Ambient Starry Color Blobs -->
   <div class="fixed inset-0 bg-grid mask-radial pointer-events-none -z-20"></div>
   <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
     <div class="aurora absolute -top-40 right-[15%] w-[550px] h-[550px] rounded-full bg-indigo-600/25"></div>
     <div class="aurora absolute top-1/3 left-[5%] w-[480px] h-[480px] rounded-full bg-cyan-600/20"></div>
-    <div class="aurora absolute bottom-10 right-[10%] w-[500px] h-[500px] rounded-full bg-emerald-600/15"></div>
+    <div class="aurora absolute bottom-10 right-[10%] w-[500px] h-[500px] rounded-full bg-amber-500/10"></div>
   </div>
 
   <!-- ========================================================================
@@ -140,11 +155,20 @@
   </header>
 
   <!-- ========================================================================
-       Hero Section (Terminal Vibe, Canvas Constellations, Status Dot, Bio)
+       Hero Section (Van Gogh "The Starry Night" Masterpiece & Live Sky)
        ======================================================================== -->
   <section id="top" class="relative min-h-[92vh] flex items-center pt-28 pb-16 overflow-hidden">
-    <!-- Interactive Canvas Constellation -->
-    <canvas id="neuralCanvas"></canvas>
+    <!-- Authentic Masterpiece: Vincent van Gogh - The Starry Night (1889) -->
+    <div class="starry-night-artwork-container absolute inset-0 pointer-events-none select-none overflow-hidden" aria-hidden="true">
+      <img src="assets/images/starry_night.jpg" alt="Vincent van Gogh - The Starry Night" class="starry-night-painting-img">
+      <!-- Tactile Canvas Weave & Heavy Impasto Relief Overlay -->
+      <div class="starry-night-tactile-overlay"></div>
+      <!-- Deep Vignette to maintain dark mode readability -->
+      <div class="starry-night-vignette"></div>
+    </div>
+
+    <!-- Living Celestial Halos & Interactive Light Canvas -->
+    <canvas id="vanGoghCanvas"></canvas>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -259,7 +283,7 @@
 
         <!-- Hero Terminal Card / Interactive Overview -->
         <div class="lg:col-span-4">
-          <div class="tech-card p-5 bg-[#0b101c]/90 border border-slate-800 backdrop-blur-xl shadow-2xl">
+          <div class="tech-card vg-card-border p-5 bg-[#0b101c]/90 border border-slate-800 backdrop-blur-xl shadow-2xl">
             <!-- Terminal Header -->
             <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-800 font-mono text-xs">
               <div class="flex items-center gap-1.5">
@@ -314,6 +338,14 @@
       </div>
     </div>
   </section>
+
+  <!-- Van Gogh Starry Night Fluid Impressionist Wave Divider -->
+  <div class="vg-wave-divider text-[#05070d]">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M0,0 C150,90 350,-40 500,60 C650,160 900,10 1200,40 L1200,120 L0,120 Z" fill="currentColor" opacity="0.85"></path>
+      <path d="M0,20 C200,100 400,20 600,80 C800,140 1000,40 1200,70 L1200,120 L0,120 Z" fill="currentColor"></path>
+    </svg>
+  </div>
 
   <!-- ========================================================================
        Section 01: 01 ~/about.md (درباره من - Bento Grid Layout)
@@ -1303,6 +1335,8 @@
     <span class="toast-msg">پیام کپی شد</span>
   </div>
 
+  <!-- Vincent van Gogh "The Starry Night" Impressionist Live Engine -->
+  <script src="assets/js/van-gogh.js"></script>
   <!-- Main JavaScript File -->
   <script src="assets/js/main.js"></script>
 </body>
