@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>احسان لک | پژوهشگر هوش مصنوعی، رباتیک و سیستم‌های خودران</title>
+  
+  <!-- Meta SEO -->
+  <meta name="description" content="وبسایت و رزومه رسمی مهندس احسان لک - پژوهشگر هوش مصنوعی و رباتیک دانشگاه صنعتی امیرکبیر، کارشناس مجله بین‌المللی ISTAM و توسعه‌دهنده سیستم‌های پرنده خودران و NLP.">
+  <meta name="keywords" content="احسان لک, Ehsan Lak, هوش مصنوعی, رباتیک, پرنده خودران, پهپاد, NLP, BERT, امیرکبیر, سیویلیکا, ISTAM, دانشگاه تهران شمال">
+  <meta name="author" content="احسان لک - Ehsan Lak">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="احسان لک | AI & Robotics Researcher">
+  <meta property="og:description" content="پژوهشگر هوش مصنوعی، توسعه‌دهنده سیستم‌های خودران، کارشناس مجله ISTAM و عضو تیم پژوهشی دانشگاه امیرکبیر">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ehsunpy.github.io/cv/">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            bgDark: '#05070d',
+            panelDark: '#0d121f',
+            panelBorder: 'rgba(56, 189, 248, 0.15)',
+            accentCyan: '#38bdf8',
+            accentViolet: '#818cf8',
+            accentEmerald: '#10b981',
+            accentAmber: '#f59e0b'
+          },
+          fontFamily: {
+            vazir: ['Vazirmatn', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-[#05070d] text-slate-100 font-vazir relative min-h-screen selection:bg-cyan-500/30 selection:text-cyan-200">
+
+  <!-- ========================================================================
+       Background Effects: Grid, Radial Mask, Aurora Blur Blobs
+       ======================================================================== -->
+  <div class="fixed inset-0 bg-grid mask-radial pointer-events-none -z-20"></div>
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="aurora absolute -top-40 right-[15%] w-[550px] h-[550px] rounded-full bg-indigo-600/25"></div>
+    <div class="aurora absolute top-1/3 left-[5%] w-[480px] h-[480px] rounded-full bg-cyan-600/20"></div>
+    <div class="aurora absolute bottom-10 right-[10%] w-[500px] h-[500px] rounded-full bg-emerald-600/15"></div>
+  </div>
+
+  <!-- ========================================================================
+       Header / Navbar (Glassmorphism & Terminal Styling)
+       ======================================================================== -->
+  <header class="fixed top-0 inset-x-0 z-40 bg-[#05070d]/80 backdrop-blur-md border-b border-slate-800/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand / Terminal Prompt -->
+      <a href="#top" class="flex items-center gap-2 group text-slate-200 hover:text-cyan-400 transition-colors">
+        <span class="font-mono text-cyan-400 font-semibold text-base sm:text-lg dir-ltr">~/ehsunpy_</span>
+        <span class="blinking-cursor"></span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-7 text-sm text-slate-400 font-medium">
+        <a href="#about" class="nav-link hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+          <span class="font-mono text-xs text-slate-500">01</span> درباره من
+        </a>
+        <a href="#skills" class="nav-link hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+          <span class="font-mono text-xs text-slate-500">02</span> مهارت‌ها
+        </a>
+        <a href="#experience" class="nav-link hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+          <span class="font-mono text-xs text-slate-500">03</span> سوابق
+        </a>
+        <a href="#projects" class="nav-link hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+          <span class="font-mono text-xs text-slate-500">04</span> پروژه‌ها
+        </a>
+        <a href="#publications" class="nav-link hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+          <span class="font-mono text-xs text-slate-500">05</span> مقالات & DOI
+        </a>
+        <a href="#contact" class="nav-link hover:text-cyan-400 transition-colors flex items-center gap-1.5">
+          <span class="font-mono text-xs text-slate-500">06</span> تماس
+        </a>
+      </nav>
+
+      <!-- Header Actions: Terminal CLI, Theme Toggle, CTA Button -->
+      <div class="flex items-center gap-3">
+        <!-- Interactive Terminal Button -->
+        <button id="terminalOpenBtn" title="باز کردن خط فرمان تعاملی (Ctrl+K)" class="hidden sm:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border border-slate-700/80 bg-slate-900/60 text-slate-400 hover:text-cyan-400 hover:border-cyan-500/40 text-xs font-mono transition-all">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span>CLI</span>
+          <kbd class="px-1.5 py-0.5 rounded bg-slate-800 text-[10px] text-slate-500 border border-slate-700">^K</kbd>
+        </button>
+
+        <!-- Theme Toggle -->
+        <button id="themeToggleBtn" aria-label="تغییر تم" class="p-2 rounded-lg text-slate-400 hover:text-cyan-400 hover:bg-slate-800/60 transition-colors">
+          <svg id="themeToggleIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <!-- Primary CTA -->
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500 hover:text-slate-950 font-medium text-xs sm:text-sm transition-all duration-200">
+          <span>شروع همکاری</span>
+          <svg class="w-4 h-4 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" aria-label="منوی موبایل" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800/60">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-slate-800 bg-[#070b16] px-4 pt-3 pb-5 space-y-2">
+      <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-cyan-400 text-sm">01 درباره من</a>
+      <a href="#skills" class="mobile-nav-link block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-cyan-400 text-sm">02 مهارت‌ها</a>
+      <a href="#experience" class="mobile-nav-link block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-cyan-400 text-sm">03 سوابق و تجربه</a>
+      <a href="#projects" class="mobile-nav-link block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-cyan-400 text-sm">04 پروژه‌ها</a>
+      <a href="#publications" class="mobile-nav-link block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-cyan-400 text-sm">05 مقالات علمی & DOI</a>
+      <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-slate-300 hover:bg-slate-800 hover:text-cyan-400 text-sm">06 تماس و ارتباط</a>
+      <div class="pt-2">
+        <a href="#contact" class="block w-full text-center py-2.5 rounded-lg bg-cyan-500 text-slate-950 font-bold text-sm">شروع همکاری</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       Hero Section (Terminal Vibe, Canvas Constellations, Status Dot, Bio)
+       ======================================================================== -->
+  <section id="top" class="relative min-h-[92vh] flex items-center pt-28 pb-16 overflow-hidden">
+    <!-- Interactive Canvas Constellation -->
+    <canvas id="neuralCanvas"></canvas>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Hero Text Content -->
+        <div class="lg:col-span-8 space-y-6">
+          
+          <!-- Live Status Badge & Profile Avatar Pill -->
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 backdrop-blur-md text-xs">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 pulse-dot"></span>
+              <span class="text-slate-300 font-medium">در دسترس برای پروژه‌های هوش مصنوعی، ناوبری خودران و پژوهش</span>
+            </div>
+
+            <!-- Civilica Researcher ID Badge -->
+            <a href="https://civilica.com/p/622818/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cyan-950/40 border border-cyan-500/30 text-cyan-300 text-xs font-mono hover:bg-cyan-900/40 transition-colors">
+              <span>Civilica ID: 622818</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+
+          <!-- Name & Role Heading -->
+          <div>
+            <div class="flex items-center gap-4 mb-2">
+              <!-- Avatar with Spinning Glowing Conic Border -->
+              <div class="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0">
+                <div class="spin-slow absolute inset-0 rounded-full bg-[conic-gradient(from_0deg,#38bdf8,#818cf8,#10b981,#38bdf8)] p-[2px]">
+                  <div class="w-full h-full bg-[#05070d] rounded-full"></div>
+                </div>
+                <img src="assets/images/ehsan_profile.webp" alt="احسان لک" class="absolute inset-[3px] w-[calc(100%-6px)] h-[calc(100%-6px)] rounded-full object-cover">
+              </div>
+
+              <div>
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white flex items-center gap-3">
+                  <span>احسان لک</span>
+                </h1>
+                <p class="font-mono text-cyan-400 text-sm sm:text-base mt-1 dir-ltr text-right">
+                  Ehsan Lak · AI & Autonomous Systems Researcher
+                </p>
+              </div>
+            </div>
+
+            <!-- Dynamic Headline (Mojtabafs Style) -->
+            <div class="mt-4 p-4 rounded-xl bg-slate-900/60 border border-slate-800/80 backdrop-blur-sm">
+              <p class="text-slate-400 text-sm font-mono mb-1.5 flex items-center gap-2">
+                <span class="text-cyan-400">~/need_solution.py</span>
+                <span class="text-slate-600">--specialization</span>
+              </p>
+              <h2 class="text-lg sm:text-2xl font-bold text-slate-100 min-h-[3rem] flex items-center flex-wrap gap-1">
+                <span>به</span>
+                <span id="typewriterText" class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400 font-extrabold"></span>
+                <span class="blinking-cursor"></span>
+                <span class="text-slate-300">نیاز دارید؟</span>
+                <span class="text-cyan-300 underline decoration-cyan-500/50 underline-offset-4">جای درستی اومدید.</span>
+              </h2>
+            </div>
+          </div>
+
+          <!-- Bio Description -->
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl">
+            پژوهشگر هوش مصنوعی و رباتیک در <strong class="text-cyan-300 font-semibold">دانشگاه صنعتی امیرکبیر</strong> (پلی‌تکنیک تهران)، کارشناس و داور علمی <strong class="text-indigo-300 font-semibold">مجله بین‌المللی ISTAM</strong>، و طراح سیستم‌های هوشمند خودمختار. تخصص من در طراحی و پیاده‌سازی <span class="text-slate-100 font-medium">ناوبری خودکار پرنده‌ها (پهپاد خودران)</span>، سامانه‌های سازمانی <span class="text-slate-100 font-medium">دستیار هوشمند (وزارت راه)</span> و مدل‌های زبانی بالینی <span class="text-slate-100 font-medium">(Clinical BERT)</span> است.
+          </p>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="#projects" class="px-5 py-3 rounded-xl bg-cyan-500 text-slate-950 font-bold text-sm hover:bg-cyan-400 transition-all shadow-lg shadow-cyan-500/20 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+              <span>مشاهده پروژه‌ها</span>
+            </a>
+
+            <a href="#publications" class="px-5 py-3 rounded-xl bg-slate-900 border border-slate-700/80 text-slate-200 hover:text-cyan-400 hover:border-cyan-500/40 text-sm font-medium transition-all flex items-center gap-2">
+              <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+              <span>مقالات علمی & DOI</span>
+            </a>
+
+            <a href="#contact" class="px-5 py-3 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 hover:bg-indigo-500 hover:text-slate-950 text-sm font-medium transition-all flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              <span>ارتباط و همکاری</span>
+            </a>
+          </div>
+
+          <!-- Academic & Social Badges -->
+          <div class="pt-4 flex flex-wrap items-center gap-2 text-xs font-mono">
+            <span class="text-slate-500">لینک‌های مستقیم:</span>
+            
+            <a href="https://github.com/Ehsunpy" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/30 transition-all flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span>GitHub</span>
+            </a>
+
+            <a href="https://ir.linkedin.com/in/ehsanlak" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/30 transition-all flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>LinkedIn</span>
+            </a>
+
+            <a href="https://civilica.com/p/622818/" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/30 transition-all flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              <span>Civilica</span>
+            </a>
+
+            <a href="https://sanad.iau.ir/journal/istam" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/30 transition-all flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-indigo-400"></span>
+              <span>Journal ISTAM</span>
+            </a>
+
+            <a href="https://doi.org/10.83303/ISTAM.2026.1253602" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-md bg-amber-500/10 border border-amber-500/30 text-amber-300 hover:bg-amber-500/20 transition-all flex items-center gap-1.5">
+              <span>DOI: 10.83303/ISTAM</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Hero Terminal Card / Interactive Overview -->
+        <div class="lg:col-span-4">
+          <div class="tech-card p-5 bg-[#0b101c]/90 border border-slate-800 backdrop-blur-xl shadow-2xl">
+            <!-- Terminal Header -->
+            <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-800 font-mono text-xs">
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+              </div>
+              <span class="text-slate-400">ehsan_lak_profile.json</span>
+            </div>
+
+            <!-- Terminal JSON / Spec Info -->
+            <pre class="font-mono text-xs leading-relaxed text-slate-300 overflow-x-auto p-2 rounded bg-black/40 border border-slate-800/60">
+<code>{
+  <span class="text-cyan-400">"name"</span>: <span class="text-emerald-300">"احسان لک"</span>,
+  <span class="text-cyan-400">"affiliation"</span>: [
+    <span class="text-amber-300">"دانشگاه صنعتی امیرکبیر"</span>,
+    <span class="text-amber-300">"دانشگاه آزاد تهران شمال"</span>
+  ],
+  <span class="text-cyan-400">"journal_role"</span>: <span class="text-indigo-300">"داور و کارشناس مجله ISTAM"</span>,
+  <span class="text-cyan-400">"active_project"</span>: <span class="text-emerald-400">"پرنده خودران (UAV)"</span>,
+  <span class="text-cyan-400">"flagship_paper"</span>: {
+    <span class="text-slate-400">"model"</span>: <span class="text-cyan-300">"Clinical BERT"</span>,
+    <span class="text-slate-400">"topic"</span>: <span class="text-slate-300">"ASD Detection"</span>,
+    <span class="text-slate-400">"doi"</span>: <span class="text-amber-400">"10.83303/ISTAM.2026.1253602"</span>
+  },
+  <span class="text-cyan-400">"status"</span>: <span class="text-emerald-400">"Ready for collaboration"</span>
+}</code></pre>
+
+            <!-- Quick Metrics Grid -->
+            <div class="grid grid-cols-2 gap-3 mt-4 pt-3 border-t border-slate-800/80">
+              <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800">
+                <div class="text-xl font-bold font-mono text-cyan-400">۴+ سال</div>
+                <div class="text-[11px] text-slate-400">تجربه تخصصی هوش مصنوعی</div>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-900/60 border border-slate-800">
+                <div class="text-xl font-bold font-mono text-indigo-400">۶+ مقاله</div>
+                <div class="text-[11px] text-slate-400">انتشارات ژورنال و همایش</div>
+              </div>
+            </div>
+
+            <!-- Terminal Prompt Action -->
+            <div class="mt-4 pt-3 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono text-slate-400">
+              <span class="text-emerald-400">guest@aut:~$</span>
+              <button onclick="document.getElementById('terminalOpenBtn').click()" class="text-cyan-400 hover:underline flex items-center gap-1">
+                <span>اجرای ترمینال</span>
+                <span class="text-[10px]">↵</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Section 01: 01 ~/about.md (درباره من - Bento Grid Layout)
+       ======================================================================== -->
+  <section id="about" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
+    
+    <!-- Section Header Matching mojtabafs.ir -->
+    <div class="mb-12">
+      <div class="flex items-center gap-3 font-mono text-xs text-slate-400 mb-3">
+        <span class="text-cyan-400 font-bold">01</span>
+        <span class="h-px w-10 bg-gradient-to-l from-cyan-400 to-transparent"></span>
+        <span class="dir-ltr text-slate-300">~/about.md</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+        درباره‌ی من
+      </h2>
+    </div>
+
+    <!-- Bento Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      
+      <!-- Main Story Card (2x2) -->
+      <div class="tech-card md:col-span-2 lg:col-span-2 p-6 sm:p-8 flex flex-col justify-between">
+        <div>
+          <!-- Tab header -->
+          <div class="flex items-center justify-between mb-5 font-mono text-xs text-slate-400">
+            <span class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+              <span class="text-slate-300">about.md</span>
+            </span>
+            <span class="text-slate-500">Markdown View</span>
+          </div>
+
+          <!-- Story text -->
+          <div class="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+            <p>
+              علاقه من به دانش رایانه و الگوریتم‌ها از درک قدرت شبیه‌سازی هوش در ماشین‌ها آغاز شد. در مقطع <strong class="text-slate-100">کارشناسی ارشد هوش مصنوعی و رباتیکس</strong> در دانشگاه آزاد اسلامی واحد تهران شمال، تمرکز خود را بر مدل‌های یادگیری عمیق و تلفیق پردازش زبان با سیستم‌های خودمختار قرار دادم.
+            </p>
+            <p>
+              امروز به عنوان <strong class="text-cyan-300">مهندس داده و عضو تیم پژوهشی دانشگاه صنعتی امیرکبیر</strong> بر روی پروژه‌های کلان محاسباتی و داده‌محور فعالیت دارم. همچنین در جایگاه <strong class="text-indigo-300">کارشناس و داور علمی مجله بین‌المللی ISTAM</strong> (سیستم‌های هوشمند در علوم پزشکی و صنایع)، در فرآیند ارزیابی کیفیت و اصالت مقالات علمی نقش ایفا می‌کنم.
+            </p>
+            <p>
+              دو حوزه کلیدی که این روزها بخش عمده فعالیت مرا به خود اختصاص داده است:
+              توسعه <strong class="text-emerald-300">پرنده‌های بدون سرنشین خودران (Autonomous UAV)</strong> با ناوبری بلادرنگ مبتنی بر بینایی ماشین و هوش لبه، و کاربرد مدل‌های زبانی بالینی نظیر <strong class="text-amber-300">Clinical BERT</strong> در غربالگری و تشخیص اوتیسم (ASD).
+            </p>
+          </div>
+        </div>
+
+        <div class="pt-6 mt-6 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono text-slate-400">
+          <span>Affiliation: Amirkabir Univ. of Tech (AUT)</span>
+          <span class="text-cyan-400">Ready to Build & Research</span>
+        </div>
+      </div>
+
+      <!-- Stat Card 1 -->
+      <div class="tech-card p-6 flex flex-col justify-between">
+        <div>
+          <div class="font-mono text-xs text-cyan-400 mb-2">#experience_years</div>
+          <div class="text-4xl sm:text-5xl font-black font-mono text-white mb-2">۴+ سال</div>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            تحقیق و پیاده‌سازی کاربردی الگوریتم‌های هوش مصنوعی، یادگیری عمیق و رباتیک در پروژه‌های دانشگاهی و صنعتی.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-800 text-xs text-slate-500 font-mono">
+          AI & Deep Learning
+        </div>
+      </div>
+
+      <!-- Stat Card 2 -->
+      <div class="tech-card p-6 flex flex-col justify-between">
+        <div>
+          <div class="font-mono text-xs text-indigo-400 mb-2">#publications</div>
+          <div class="text-4xl sm:text-5xl font-black font-mono text-white mb-2">۶+ مقاله</div>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            مقاله ژورنال بین‌المللی با شناسه رسمی DOI و مقالات همایش‌های بین‌المللی و ملی نمایه شده در پایگاه سیویلیکا.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-800 text-xs text-slate-500 font-mono">
+          ISTAM / Civilica / Conferences
+        </div>
+      </div>
+
+      <!-- Stat Card 3 -->
+      <div class="tech-card p-6 flex flex-col justify-between">
+        <div>
+          <div class="font-mono text-xs text-amber-400 mb-2">#awards</div>
+          <div class="text-4xl sm:text-5xl font-black font-mono text-white mb-2">۲ مقام</div>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            کسب مقام دوم در دو دوره متوالی رویداد ملی ایده‌شو دانشگاه شیشه الیگودرز در سال‌های ۱۴۰۲ و ۱۴۰۳ با طرح‌های نوآورانه.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-800 text-xs text-slate-500 font-mono">
+          Innovation & Tech Contests
+        </div>
+      </div>
+
+      <!-- Stat Card 4 -->
+      <div class="tech-card p-6 flex flex-col justify-between">
+        <div>
+          <div class="font-mono text-xs text-emerald-400 mb-2">#academic_centers</div>
+          <div class="text-4xl sm:text-5xl font-black font-mono text-white mb-2">۳ مرکز</div>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            همکاری فعال علمی با دانشگاه صنعتی امیرکبیر، دانشگاه علوم پزشکی لرستان و دانشگاه آزاد اسلامی واحد تهران شمال.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-800 text-xs text-slate-500 font-mono">
+          Research & Teaching
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Section 02: 02 ~/skills.json (مهارت‌های تخصصی)
+       ======================================================================== -->
+  <section id="skills" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
+    
+    <!-- Section Header -->
+    <div class="mb-12">
+      <div class="flex items-center gap-3 font-mono text-xs text-slate-400 mb-3">
+        <span class="text-cyan-400 font-bold">02</span>
+        <span class="h-px w-10 bg-gradient-to-l from-cyan-400 to-transparent"></span>
+        <span class="dir-ltr text-slate-300">~/skills.json</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+        مهارت‌های تخصصی
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base mt-2">
+        مجموعه ابزارها، فریم‌ورک‌ها و شایستگی‌های فنی به تفکیک حوزه تخصصی.
+      </p>
+    </div>
+
+    <!-- Skills Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      
+      <!-- Category 1: AI & Deep Learning -->
+      <div class="tech-card p-6">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-mono text-cyan-400 dir-ltr">ai_and_deep_learning</span>
+          <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-3">هوش مصنوعی و یادگیری عمیق</h3>
+        <p class="text-slate-400 text-xs leading-relaxed mb-4">
+          طراحی و آموزش شبکه‌های عصبی عمیق، مدل‌های مبتنی بر ترنسفورمر، و پیاده‌سازی یادگیری انتقالی در مسائل پیچیده.
+        </p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Python</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-300">PyTorch</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">TensorFlow</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Scikit-Learn</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-indigo-300">Clinical BERT</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">CNN / RNN</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Transfer Learning</span>
+        </div>
+      </div>
+
+      <!-- Category 2: NLP & LLMs -->
+      <div class="tech-card p-6">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-mono text-indigo-400 dir-ltr">nlp_and_llms</span>
+          <span class="w-2.5 h-2.5 rounded-full bg-indigo-400"></span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-3">پردازش زبان طبیعی و مدل‌های زبانی</h3>
+        <p class="text-slate-400 text-xs leading-relaxed mb-4">
+          توسعه سیستم‌های بازیابی اطلاعات، معماری RAG سازمانی، پردازش متون بالینی و فارسی، و فاین‌تیون مدل‌ها.
+        </p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-indigo-300">Hugging Face</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-300">RAG Architectures</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">BERT Fine-Tuning</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Vector Databases</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Semantic Search</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Prompt Eng.</span>
+        </div>
+      </div>
+
+      <!-- Category 3: Autonomous Systems & UAV -->
+      <div class="tech-card p-6">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-mono text-emerald-400 dir-ltr">autonomous_uav</span>
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-3">سامانه‌های خودران و رباتیک پرنده</h3>
+        <p class="text-slate-400 text-xs leading-relaxed mb-4">
+          پیاده‌سازی الگوریتم‌های ناوبری مستقل پهپاد، بینایی ماشین بلادرنگ، ترکیب داده‌های حسگری و پردازش لبه.
+        </p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-emerald-300">Autonomous UAV</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Computer Vision</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-300">OpenCV</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Edge AI</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Sensor Fusion</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Flight Controllers</span>
+        </div>
+      </div>
+
+      <!-- Category 4: Data Engineering & Backend -->
+      <div class="tech-card p-6">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-mono text-amber-400 dir-ltr">data_engineering</span>
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-3">مهندسی داده و توسعه نرم‌افزار</h3>
+        <p class="text-slate-400 text-xs leading-relaxed mb-4">
+          خطوط پیش‌پردازش و تحلیل داده‌های حجیم آزمایشگاهی در دانشگاه امیرکبیر و ایجاد وب‌سرویس‌های هوشمند.
+        </p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-amber-300">Pandas / NumPy</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">FastAPI</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">SQL & NoSQL</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Git & GitHub</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Docker</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Linux</span>
+        </div>
+      </div>
+
+      <!-- Category 5: Academic Research & Journal Review -->
+      <div class="tech-card p-6 md:col-span-2 lg:col-span-2">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-mono text-purple-400 dir-ltr">scientific_research_and_reviewing</span>
+          <span class="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-3">پژوهش علمی، داوری ژورنال و تحلیل داده</h3>
+        <p class="text-slate-400 text-xs leading-relaxed mb-4">
+          داوری مقالات در ژورنال بین‌المللی ISTAM، تدریس دانشگاهی مباحث آمار و تحلیل زیستی در دانشگاه علوم پزشکی لرستان، و انتشار مقالات استاندارد در همایش‌های معتبر.
+        </p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-purple-300">Journal Paper Reviewing (ISTAM)</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Research Methodology</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Biostatistics</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-300">LaTeX</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-200">Data Visualization (Matplotlib/Seaborn)</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Section 03: 03 ~/experience.log (سوابق، موقعیت‌ها و تحصیلات)
+       ======================================================================== -->
+  <section id="experience" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
+    
+    <!-- Section Header -->
+    <div class="mb-12">
+      <div class="flex items-center gap-3 font-mono text-xs text-slate-400 mb-3">
+        <span class="text-cyan-400 font-bold">03</span>
+        <span class="h-px w-10 bg-gradient-to-l from-cyan-400 to-transparent"></span>
+        <span class="dir-ltr text-slate-300">~/experience.log</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+        سوابق و موقعیت‌های پژوهشی
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base mt-2">
+        تجربه کاری، نقش‌های آکادمیک، مسئولیت‌های اجرایی و سوابق تحصیلی.
+      </p>
+    </div>
+
+    <!-- Timeline / Log Cards -->
+    <div class="space-y-4">
+      
+      <!-- Experience 1: Amirkabir University -->
+      <div class="tech-card p-6 border-r-4 border-r-cyan-400">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+          <div>
+            <span class="text-xs font-mono text-cyan-400">aut_research_team</span>
+            <h3 class="text-xl font-bold text-white mt-0.5">عضو تیم پژوهشی و مهندس داده</h3>
+            <div class="text-sm text-cyan-300 font-medium">دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران)</div>
+          </div>
+          <div class="font-mono text-xs px-3 py-1 rounded-full bg-cyan-950/50 border border-cyan-500/30 text-cyan-400 self-start sm:self-auto">
+            ۱۴۰۴ — اکنون (فعال)
+          </div>
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          همکاری در تیم پژوهشی دانشگاه صنعتی امیرکبیر در زمینه طراحی خطوط پردازش داده (Data Engineering Pipelines)، پیش‌پردازش داده‌های کلان محاسباتی و پیاده‌سازی مدل‌های یادگیری عمیق در پروژه‌های پیشرفته علمی.
+        </p>
+      </div>
+
+      <!-- Experience 2: Journal ISTAM Reviewer & Expert -->
+      <div class="tech-card p-6 border-r-4 border-r-indigo-400">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+          <div>
+            <span class="text-xs font-mono text-indigo-400">journal_expert</span>
+            <h3 class="text-xl font-bold text-white mt-0.5">کارشناس و داور علمی مقالات ژورنال</h3>
+            <div class="text-sm text-indigo-300 font-medium">مجله بین‌المللی ISTAM (Sanad IAU)</div>
+          </div>
+          <div class="font-mono text-xs px-3 py-1 rounded-full bg-indigo-950/50 border border-indigo-500/30 text-indigo-400 self-start sm:self-auto">
+            ۱۴۰۴ — اکنون
+          </div>
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          داوری تخصصی و ارزیابی کیفیت مقالات علمی در ژورنال بین‌المللی <em>International Journal of Intelligent Systems: Theory and Applications in Medical Science and Industries (ISTAM)</em> با تمرکز بر کاربرد یادگیری ماشین و پردازش زبان در صنایع و علوم پزشکی.
+        </p>
+      </div>
+
+      <!-- Experience 3: Autonomous Flying Vehicle (UAV) -->
+      <div class="tech-card p-6 border-r-4 border-r-emerald-400">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+          <div>
+            <span class="text-xs font-mono text-emerald-400">autonomous_systems</span>
+            <h3 class="text-xl font-bold text-white mt-0.5">توسعه‌دهنده سیستم پرنده خودران (UAV Lead)</h3>
+            <div class="text-sm text-emerald-300 font-medium">پروژه تحقیقاتی پرنده خودران</div>
+          </div>
+          <div class="font-mono text-xs px-3 py-1 rounded-full bg-emerald-950/50 border border-emerald-500/30 text-emerald-400 self-start sm:self-auto">
+            ۱۴۰۴ — در حال توسعه
+          </div>
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          طراحی معماری ناوبری مستقل هوایی بدون اتکا به جی‌پی‌اس خارجی، تلفیق بینایی ماشین بلادرنگ با حسگرهای IMU و پیاده‌سازی الگوریتم‌های بهینه‌سازی مسیر پرواز بر بستر پردازنده‌های لبه (Edge AI).
+        </p>
+      </div>
+
+      <!-- Experience 4: Ministry of Roads Assistant -->
+      <div class="tech-card p-6 border-r-4 border-r-amber-400">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+          <div>
+            <span class="text-xs font-mono text-amber-400">enterprise_ai</span>
+            <h3 class="text-xl font-bold text-white mt-0.5">توسعه‌دهنده دستیار هوشمند سازمانی</h3>
+            <div class="text-sm text-amber-300 font-medium">وزارت راه و شهرسازی</div>
+          </div>
+          <div class="font-mono text-xs px-3 py-1 rounded-full bg-amber-950/50 border border-amber-500/30 text-amber-400 self-start sm:self-auto">
+            ۱۴۰۳ — ۱۴۰۴
+          </div>
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          توسعه سامانه دستیار هوشمند پاسخ‌گویی به استعلامات و جستجوی معنایی بخشنامه‌ها و قوانین بر پایه معماری RAG، مدل‌های زبانی فارسی و پایگاه‌های داده برداری سازمانی.
+        </p>
+      </div>
+
+      <!-- Experience 5: Lorestan Medical University Teaching -->
+      <div class="tech-card p-6 border-r-4 border-r-purple-400">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+          <div>
+            <span class="text-xs font-mono text-purple-400">academic_lecturer</span>
+            <h3 class="text-xl font-bold text-white mt-0.5">مدرس دانشگاه</h3>
+            <div class="text-sm text-purple-300 font-medium">دانشگاه علوم پزشکی لرستان</div>
+          </div>
+          <div class="font-mono text-xs px-3 py-1 rounded-full bg-purple-950/50 border border-purple-500/30 text-purple-400 self-start sm:self-auto">
+            ۱۴۰۴
+          </div>
+        </div>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          تدریس سرفصل‌های آمار، تحلیل داده‌های زیستی و آشنایی با کاربردهای هوش مصنوعی و یادگیری ماشین در حوزه‌های سلامت و پزشکی برای دانشجویان علوم پزشکی.
+        </p>
+      </div>
+
+      <!-- Experience 6: Education & Awards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-2">
+        <div class="tech-card p-6">
+          <span class="text-xs font-mono text-cyan-400">education</span>
+          <h3 class="text-lg font-bold text-white mt-1">کارشناسی ارشد هوش مصنوعی و رباتیکس</h3>
+          <p class="text-slate-400 text-xs mt-1">دانشگاه آزاد اسلامی واحد تهران شمال (۱۴۰۳ — ۱۴۰۵)</p>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+            دستیار تخصصی (UA) دانشگاه آزاد اسلامی تهران شمال، تمرکز پژوهشی بر مدل‌های زبانی بالینی، پردازش متن و سامانه‌های ناوبری رباتیک.
+          </p>
+        </div>
+
+        <div class="tech-card p-6">
+          <span class="text-xs font-mono text-amber-400">honors_and_awards</span>
+          <h3 class="text-lg font-bold text-white mt-1">مقام‌های برتر مسابقات ایده‌شو</h3>
+          <p class="text-slate-400 text-xs mt-1">دانشگاه شیشه الیگودرز (۱۴۰۲ و ۱۴۰۳)</p>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+            کسب مقام دوم رویداد ایده‌شو در دو سال متوالی با ارائه طرح‌های نوآورانه در زمینه به‌کارگیری سیستم‌های هوشمند رایانه‌ای در حل چالش‌های روز.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Section 04: 04 ~/projects/ (پروژه‌ها و نوآوری‌ها)
+       ======================================================================== -->
+  <section id="projects" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
+    
+    <!-- Section Header -->
+    <div class="mb-12">
+      <div class="flex items-center gap-3 font-mono text-xs text-slate-400 mb-3">
+        <span class="text-cyan-400 font-bold">04</span>
+        <span class="h-px w-10 bg-gradient-to-l from-cyan-400 to-transparent"></span>
+        <span class="dir-ltr text-slate-300">~/projects/</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+        پروژه‌ها و نوآوری‌ها
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base mt-2">
+        نمونه‌ای از سیستم‌های توسعه‌یافته در حوزه‌های ناوبری خودمختار، هوش مصنوعی سازمانی و سلامت.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <!-- Project 1: Autonomous UAV -->
+      <div class="tech-card p-6 flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono text-emerald-400 dir-ltr">project_01 · active</span>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot"></span>
+              در حال توسعه و آزمایش
+            </span>
+          </div>
+
+          <h3 class="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors mb-2">
+            پرنده خودران (Autonomous UAV Navigation)
+          </h3>
+          <p class="text-slate-400 text-xs font-mono mb-4">
+            Edge AI · Computer Vision · Flight Navigation System
+          </p>
+
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            سیستم پیشرفته هدایت خودکار پرنده‌های بدون سرنشین با توانایی ناوبری در محیط‌های ناشناخته بدون تکیه بر GPS، پردازش بلادرنگ جریان ویدیویی با الگوریتم‌های بهینه‌سازی‌شده برای سخت‌افزارهای لبه (Edge AI) و تشخیص خودکار موانع و تصمیم‌گیری برای تغییر مسیر.
+          </p>
+
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-300">Autonomous Flight</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">Computer Vision</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-emerald-300">Edge AI</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">Python</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">OpenCV</span>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-500">Core Architecture: Robotics & AI</span>
+          <span class="text-cyan-400">Research & Dev</span>
+        </div>
+      </div>
+
+      <!-- Project 2: Ministry of Roads Assistant -->
+      <div class="tech-card p-6 flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono text-cyan-400 dir-ltr">project_02 · enterprise</span>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono">
+              پیاده‌سازی سازمانی
+            </span>
+          </div>
+
+          <h3 class="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors mb-2">
+            دستیار هوشمند وزارت راه و شهرسازی
+          </h3>
+          <p class="text-slate-400 text-xs font-mono mb-4">
+            NLP · RAG System · Enterprise Assistant
+          </p>
+
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            سامانه هوش مصنوعی سازمانی جهت پاسخگویی دقیق و مستند به استعلام‌ها و جستجوی مفهومی میان حجم عظیمی از مستندات، مقررات و بخشنامه‌های وزارت راه با بهره‌گیری از معماری RAG (تولید با بازیابی پیشرفته) و پایگاه داده برداری.
+          </p>
+
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-300">RAG Pipeline</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">Persian NLP</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-indigo-300">Vector Search</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">FastAPI</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">Docker</span>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-500">Enterprise Solution</span>
+          <span class="text-cyan-400">Production Ready</span>
+        </div>
+      </div>
+
+      <!-- Project 3: Clinical BERT for Autism Detection -->
+      <div class="tech-card p-6 flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono text-indigo-400 dir-ltr">project_03 · publication</span>
+            <a href="https://doi.org/10.83303/ISTAM.2026.1253602" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono hover:bg-amber-500/20">
+              <span>DOI Indexed</span>
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+          </div>
+
+          <h3 class="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors mb-2">
+            تشخیص طیف اوتیسم (ASD) با Clinical BERT
+          </h3>
+          <p class="text-slate-400 text-xs font-mono mb-4">
+            Clinical NLP · Healthcare AI · ISTAM Journal 2026
+          </p>
+
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            طراحی و فاین‌تیون مدل زبانی بالینی BERT جهت غربالگری زودهنگام و شناسایی نشانه‌های اختلال طیف اوتیسم بر اساس داده‌های متنی و ارزیابی جامع عملکرد آن در مقایسه با روش‌های سنتی یادگیری ماشین؛ منتشر شده در ژورنال بین‌المللی ISTAM.
+          </p>
+
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-indigo-300">Clinical BERT</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">Transformers</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-300">Medical AI</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">Comparative ML</span>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-500">Ref: DOI 10.83303/ISTAM.2026.1253602</span>
+          <button onclick="openBibtexModal()" class="text-amber-400 hover:underline">مشاهده BibTeX</button>
+        </div>
+      </div>
+
+      <!-- Project 4: Amirkabir Data Engineering Platform -->
+      <div class="tech-card p-6 flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono text-amber-400 dir-ltr">project_04 · data_platform</span>
+            <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-mono">
+              پلتفرم تحقیقاتی امیرکبیر
+            </span>
+          </div>
+
+          <h3 class="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors mb-2">
+            خط لوله مهندسی داده دانشگاه صنعتی امیرکبیر
+          </h3>
+          <p class="text-slate-400 text-xs font-mono mb-4">
+            Data Engineering · ETL · Statistical Pipelines
+          </p>
+
+          <p class="text-slate-300 text-sm leading-relaxed mb-6">
+            توسعه زیرساخت یکپارچه دریافت، پاک‌سازی و تجمیع داده‌های آزمایشگاهی و محاسباتی، آماده‌سازی مجموعه داده‌ها برای مدل‌های پیش‌بینی و پیاده‌سازی تحلیل‌های آماری پیشرفته در تیم پژوهشی دانشگاه صنعتی امیرکبیر.
+          </p>
+
+          <div class="flex flex-wrap gap-1.5 mb-6">
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-amber-300">ETL Pipelines</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">Pandas / NumPy</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-cyan-300">Data Modeling</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300">Python</span>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-mono">
+          <span class="text-slate-500">Amirkabir University of Technology</span>
+          <span class="text-cyan-400">Production</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Section 05: 05 ~/publications.bib (مقالات علمی، ژورنال و DOI)
+       ======================================================================== -->
+  <section id="publications" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
+    
+    <!-- Section Header -->
+    <div class="mb-12">
+      <div class="flex items-center gap-3 font-mono text-xs text-slate-400 mb-3">
+        <span class="text-cyan-400 font-bold">05</span>
+        <span class="h-px w-10 bg-gradient-to-l from-cyan-400 to-transparent"></span>
+        <span class="dir-ltr text-slate-300">~/publications.bib</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+        مقالات علمی و انتشارات
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base mt-2">
+        انتشارات ژورنالی بین‌المللی با نمایه رسمی DOI، مقالات همایش‌های علمی و داوری تخصصی.
+      </p>
+    </div>
+
+    <!-- Featured Paper Card (ISTAM Journal with DOI) -->
+    <div class="tech-card p-6 sm:p-8 border border-amber-500/30 bg-gradient-to-b from-[#0e1424] to-[#070b16] relative overflow-hidden mb-8">
+      <div class="absolute -top-12 -left-12 w-48 h-48 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40 text-xs font-mono font-semibold flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+            ژورنال بین‌المللی ISTAM (۲۰۲۶)
+          </span>
+          <span class="px-2.5 py-1 rounded-full bg-slate-900 text-slate-300 border border-slate-800 text-xs font-mono">
+            Peer-Reviewed
+          </span>
+        </div>
+
+        <!-- DOI Badge with direct link -->
+        <a href="https://doi.org/10.83303/ISTAM.2026.1253602" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-slate-900 border border-amber-500/40 text-amber-300 hover:bg-amber-500/10 text-xs font-mono transition-all">
+          <span>DOI: 10.83303/ISTAM.2026.1253602</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+      </div>
+
+      <h3 class="text-xl sm:text-2xl font-bold text-white leading-snug mb-3">
+        تشخیص اختلال طیفی اوتیسم (ASD) با استفاده از مدل زبانی بالینی BERT و مقایسه آن با روش‌های کلاسیک یادگیری ماشین
+      </h3>
+
+      <div class="text-sm font-medium text-slate-300 mb-4 flex flex-wrap items-center gap-x-4 gap-y-1">
+        <span><strong>نویسندگان:</strong> احسان لک، راحیل حسینی</span>
+        <span>•</span>
+        <span><strong>ژورنال:</strong> <em>International Journal of Intelligent Systems: Theory and Applications in Medical Science and Industries (ISTAM)</em></span>
+      </div>
+
+      <p class="text-slate-300 text-sm leading-relaxed mb-6">
+        در این پژوهش جامع، توانمندی مدل زبانی بالینی بهینه‌سازی‌شده بر پایه ترنسفورمرها (Clinical BERT) در شناسایی شاخص‌های رفتاری و نشانه‌های زبانی اوتیسم بررسی شده و دقت، حساسیت و قابلیت تعمیم آن با مدل‌های کلاسیک یادگیری ماشین نظیر SVM، رندوم فارست و گرادیان بوستینگ مقایسه شده است. نتایج بیانگر برتری معنادار معماری ترنسفورمر بالینی در استخراج ویژگی‌های عمیق معنایی می‌باشد.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-3 pt-2">
+        <a href="https://doi.org/10.83303/ISTAM.2026.1253602" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-amber-500 text-slate-950 font-bold text-xs sm:text-sm hover:bg-amber-400 transition-colors flex items-center gap-2">
+          <span>مشاهده آنلاین مقاله (DOI)</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        </a>
+
+        <button onclick="openBibtexModal()" class="px-4 py-2 rounded-lg bg-slate-900 border border-slate-700 text-slate-200 hover:text-cyan-400 hover:border-cyan-500/40 text-xs sm:text-sm font-medium transition-colors flex items-center gap-2 font-mono">
+          <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+          <span>دریافت استناد BibTeX</span>
+        </button>
+
+        <button onclick="copyToClipboard('10.83303/ISTAM.2026.1253602', 'شناسه دیجیتال DOI')" class="px-3 py-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-200 text-xs font-mono transition-colors">
+          کپی DOI
+        </button>
+      </div>
+    </div>
+
+    <!-- Conference Papers & Civilica Indexed Papers -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+      
+      <!-- Conference Paper 1 -->
+      <div class="tech-card p-6">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono text-cyan-400">conference_paper · 1404</span>
+          <span class="px-2 py-0.5 rounded bg-cyan-950/40 border border-cyan-500/30 text-cyan-300 text-[11px] font-mono">CIVILICA Indexed</span>
+        </div>
+        <h4 class="text-base font-bold text-white mb-2">
+          بررسی تاثیر مداخله‌های شناختی-رفتاری مبتنی بر هوش مصنوعی بر کاهش اضطراب امتحان در دانش‌آموزان
+        </h4>
+        <p class="text-slate-400 text-xs mb-3">
+          ارائه شده در بیست و چهارمین کنفرانس بین‌المللی روانشناسی، مشاوره و علوم تربیتی (۱۴۰۴)
+        </p>
+        <p class="text-slate-300 text-xs leading-relaxed">
+          پژوهش کاربردی در تلفیق ابزارهای هوش مصنوعی جهت طراحی پروتکل‌های شخصی‌سازی‌شده شناختی-رفتاری برای مهار اضطراب تحصیلی.
+        </p>
+      </div>
+
+      <!-- Conference Paper 2 -->
+      <div class="tech-card p-6">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono text-indigo-400">conference_paper · 1404</span>
+          <span class="px-2 py-0.5 rounded bg-indigo-950/40 border border-indigo-500/30 text-indigo-300 text-[11px] font-mono">CIVILICA Indexed</span>
+        </div>
+        <h4 class="text-base font-bold text-white mb-2">
+          ارزیابی تاثیر کلاس‌های معکوس بر کاهش اضطراب ریاضی دانش‌آموزان دوره ابتدایی
+        </h4>
+        <p class="text-slate-400 text-xs mb-3">
+          ارائه شده در بیست و هشتمین کنفرانس ملی روانشناسی علوم تربیتی و اجتماعی (۱۴۰۴)
+        </p>
+        <p class="text-slate-300 text-xs leading-relaxed">
+          ارزیابی تجربی الگوهای آموزشی فناورانه و روش کلاس معکوس در ارتقای راندمان یادگیری و کاهش فشار روانی یادگیری ریاضی.
+        </p>
+      </div>
+
+      <!-- Conference Paper 3 -->
+      <div class="tech-card p-6">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono text-emerald-400">conference_paper · 1404</span>
+          <span class="px-2 py-0.5 rounded bg-emerald-950/40 border border-emerald-500/30 text-emerald-300 text-[11px] font-mono">CIVILICA Indexed</span>
+        </div>
+        <h4 class="text-base font-bold text-white mb-2">
+          بررسی رابطه تاب‌آوری و خودکارآمدی با پیشرفت تحصیلی دانش‌آموزان
+        </h4>
+        <p class="text-slate-400 text-xs mb-3">
+          ارائه شده در اولین کنفرانس بین‌المللی روانشناسی کاربردی و مشاوره (۱۴۰۴)
+        </p>
+        <p class="text-slate-300 text-xs leading-relaxed">
+          تحلیل آماری و مدل‌سازی همبستگی متغیرهای روان‌شناختی با عملکرد تحصیلی دانش‌آموزان.
+        </p>
+      </div>
+
+      <!-- Journal & Academic Profile Cards -->
+      <div class="tech-card p-6 flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-mono text-purple-400">journal_position</span>
+            <span class="px-2 py-0.5 rounded bg-purple-950/40 border border-purple-500/30 text-purple-300 text-[11px] font-mono">Sanad IAU</span>
+          </div>
+          <h4 class="text-base font-bold text-white mb-2">
+            کارشناس و داور علمی مجله بین‌المللی ISTAM
+          </h4>
+          <p class="text-slate-300 text-xs leading-relaxed mb-4">
+            عضویت در کادر تخصصی ارزیابی مقالات مجله <em>ISTAM</em> در سامانه نشریات علمی دانشگاه آزاد اسلامی (Sanad).
+          </p>
+        </div>
+        <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs">
+          <a href="https://sanad.iau.ir/journal/istam" target="_blank" rel="noopener noreferrer" class="text-cyan-400 hover:underline flex items-center gap-1">
+            <span>مشاهده صفحه وبسایت ژورنال</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Direct Civilica Verification Banner -->
+    <div class="p-6 rounded-2xl bg-gradient-to-r from-slate-900 to-[#0c1424] border border-cyan-500/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center shrink-0">
+          <svg class="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <h4 class="text-base font-bold text-white">پروفایل پژوهشگر در پایگاه استنادی مقالات علمی ایران (CIVILICA)</h4>
+          <p class="text-xs text-slate-400 mt-0.5">شناسه پژوهشگر: <strong>622818</strong> | شامل سوابق مقالات همایش‌ها، دانشگاه‌ها و مشخصات علمی</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 w-full sm:w-auto">
+        <a href="https://civilica.com/p/622818/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-4 py-2 rounded-lg bg-cyan-500 text-slate-950 font-bold text-xs hover:bg-cyan-400 transition-colors text-center">
+          مشاهده در سیویلیکا
+        </a>
+        <a href="https://en.civilica.com/p/622818/print/" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-4 py-2 rounded-lg bg-slate-800 border border-slate-700 text-slate-300 hover:text-white text-xs font-mono transition-colors text-center">
+          Print / PDF
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ========================================================================
+       Section 06: 06 ~/contact.sh (تماس و شبکه ارتباطی)
+       ======================================================================== -->
+  <section id="contact" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
+    
+    <!-- Section Header -->
+    <div class="mb-12">
+      <div class="flex items-center gap-3 font-mono text-xs text-slate-400 mb-3">
+        <span class="text-cyan-400 font-bold">06</span>
+        <span class="h-px w-10 bg-gradient-to-l from-cyan-400 to-transparent"></span>
+        <span class="dir-ltr text-slate-300">~/contact.sh</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+        تماس و شروع همکاری
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base mt-2">
+        پروژه‌ای در ذهن دارید، نیاز به مشاوره فنی هوش مصنوعی دارید، یا مایل به همکاری پژوهشی هستید؟ بیایید صحبت کنیم.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Contact Info & Direct Links (5 cols) -->
+      <div class="lg:col-span-5 space-y-4">
+        
+        <!-- Email Card -->
+        <div class="tech-card p-6">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-mono text-slate-400">email_address</span>
+            <button onclick="copyToClipboard('ehsanlak.ai@gmail.com', 'آدرس ایمیل')" class="text-xs font-mono text-cyan-400 hover:underline">کپی ایمیل</button>
+          </div>
+          <a href="mailto:ehsanlak.ai@gmail.com" class="text-lg font-bold font-mono text-white hover:text-cyan-400 transition-colors block">
+            ehsanlak.ai@gmail.com
+          </a>
+          <p class="text-xs text-slate-400 mt-2">
+            پاسخ‌گویی معمولاً ظرف ۲۴ ساعت انجام می‌شود.
+          </p>
+        </div>
+
+        <!-- Academic Affiliation Card -->
+        <div class="tech-card p-6">
+          <span class="text-xs font-mono text-cyan-400 block mb-1">location_and_lab</span>
+          <h4 class="text-base font-bold text-white">دانشگاه صنعتی امیرکبیر (پلی‌تکنیک تهران)</h4>
+          <p class="text-xs text-slate-400 mt-1">تهران، میدان ولیعصر، خیابان حافظ</p>
+          <div class="mt-4 pt-3 border-t border-slate-800 text-xs text-slate-500 font-mono">
+            Research Team: AI, Data Engineering & UAV Systems
+          </div>
+        </div>
+
+        <!-- Social & Professional Grid -->
+        <div class="grid grid-cols-2 gap-3">
+          
+          <a href="https://ir.linkedin.com/in/ehsanlak" target="_blank" rel="noopener noreferrer" class="tech-card p-4 hover:border-cyan-500/50 transition-all block group">
+            <div class="flex items-center gap-2 mb-1">
+              <svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span class="text-xs font-bold text-white group-hover:text-cyan-400">LinkedIn</span>
+            </div>
+            <span class="text-[11px] text-slate-400 font-mono">in/ehsanlak</span>
+          </a>
+
+          <a href="https://github.com/Ehsunpy" target="_blank" rel="noopener noreferrer" class="tech-card p-4 hover:border-cyan-500/50 transition-all block group">
+            <div class="flex items-center gap-2 mb-1">
+              <svg class="w-4 h-4 text-indigo-400" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              <span class="text-xs font-bold text-white group-hover:text-cyan-400">GitHub</span>
+            </div>
+            <span class="text-[11px] text-slate-400 font-mono">Ehsunpy</span>
+          </a>
+
+          <a href="https://civilica.com/p/622818/" target="_blank" rel="noopener noreferrer" class="tech-card p-4 hover:border-cyan-500/50 transition-all block group">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-cyan-400 flex items-center justify-center text-[10px] text-slate-950 font-bold">C</span>
+              <span class="text-xs font-bold text-white group-hover:text-cyan-400">Civilica</span>
+            </div>
+            <span class="text-[11px] text-slate-400 font-mono">ID: 622818</span>
+          </a>
+
+          <a href="https://sanad.iau.ir/journal/istam" target="_blank" rel="noopener noreferrer" class="tech-card p-4 hover:border-cyan-500/50 transition-all block group">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="w-3.5 h-3.5 rounded-full bg-amber-400 flex items-center justify-center text-[10px] text-slate-950 font-bold">J</span>
+              <span class="text-xs font-bold text-white group-hover:text-cyan-400">Journal</span>
+            </div>
+            <span class="text-[11px] text-slate-400 font-mono">ISTAM Expert</span>
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- Terminal Contact Form (7 cols) -->
+      <div class="lg:col-span-7">
+        <div class="tech-card p-6 sm:p-8 bg-[#0a0f1d]/90 border border-slate-800">
+          
+          <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-800 font-mono text-xs">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+              <span class="text-slate-400 mr-2">send-message.sh</span>
+            </div>
+            <span class="text-cyan-400">Interactive Form</span>
+          </div>
+
+          <form id="contactForm" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1.5">
+                  <span class="text-cyan-400">$</span> your_name
+                </label>
+                <input type="text" name="name" required placeholder="نام و نام خانوادگی" class="w-full px-4 py-2.5 rounded-lg bg-black/40 border border-slate-800 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 text-sm text-white placeholder-slate-600 outline-none transition-all">
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1.5">
+                  <span class="text-cyan-400">$</span> your_email
+                </label>
+                <input type="email" name="email" required placeholder="example@domain.com" class="w-full px-4 py-2.5 rounded-lg bg-black/40 border border-slate-800 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 text-sm text-white placeholder-slate-600 outline-none transition-all dir-ltr text-right">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-1.5">
+                <span class="text-cyan-400">$</span> subject_topic
+              </label>
+              <input type="text" name="subject" required placeholder="موضوع همکاری (پژوهش، پروژه صنعتی، پرنده خودران یا مشاوره)" class="w-full px-4 py-2.5 rounded-lg bg-black/40 border border-slate-800 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 text-sm text-white placeholder-slate-600 outline-none transition-all">
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-1.5">
+                <span class="text-cyan-400">$</span> message_payload
+              </label>
+              <textarea name="message" rows="4" required placeholder="توضیحات پروژه، نیازمندی‌ها یا پیشنهاد همکاری خود را بنویسید..." class="w-full px-4 py-2.5 rounded-lg bg-black/40 border border-slate-800 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 text-sm text-white placeholder-slate-600 outline-none transition-all"></textarea>
+            </div>
+
+            <!-- Simulated Terminal Output Box -->
+            <div id="formStatus" class="hidden p-3 rounded-lg bg-black/60 border border-slate-800/80"></div>
+
+            <button type="submit" class="w-full py-3 rounded-xl bg-cyan-500 text-slate-950 font-bold text-sm hover:bg-cyan-400 transition-all flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 font-mono">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+              <span>./send-message.sh --execute</span>
+            </button>
+          </form>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       Footer (Terminal Prompt, Copyright, Socials, Back to Top)
+       ======================================================================== -->
+  <footer class="border-t border-slate-800/80 bg-[#04060b] py-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Brand & Copyright -->
+      <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-right">
+        <a href="#top" class="font-mono text-cyan-400 font-bold text-lg dir-ltr">~/ehsunpy_</a>
+        <span class="text-slate-600 hidden sm:inline">|</span>
+        <p class="text-xs text-slate-400 font-mono">
+          © ۱۴۰۵ / 2026 احسان لک (Ehsan Lak) · توسعه یافته با رویکرد ترمینالی و هوش مصنوعی
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="flex items-center gap-4 text-xs font-mono text-slate-400">
+        <a href="https://github.com/Ehsunpy" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">GitHub</a>
+        <a href="https://ir.linkedin.com/in/ehsanlak" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">LinkedIn</a>
+        <a href="https://civilica.com/p/622818/" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">Civilica</a>
+        <a href="https://doi.org/10.83303/ISTAM.2026.1253602" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">DOI Paper</a>
+        <a href="#top" class="text-cyan-400 hover:underline flex items-center gap-1">
+          <span>بازگشت به بالا</span>
+          <span>↑</span>
+        </a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       Terminal CLI Modal (Interactive Developer Command Line)
+       ======================================================================== -->
+  <div id="terminalModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4 modal-backdrop">
+    <div class="tech-card w-full max-w-2xl bg-[#090d18] border border-cyan-500/40 shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
+      
+      <!-- Terminal Window Bar -->
+      <div class="flex items-center justify-between px-4 py-3 bg-[#0d1424] border-b border-slate-800 font-mono text-xs">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 rounded-full bg-red-500"></span>
+          <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+          <span class="w-3 h-3 rounded-full bg-green-500"></span>
+          <span class="text-slate-300 font-semibold mr-2 dir-ltr">ehsan-lak-cli v2.0 (AUT)</span>
+        </div>
+        <button id="terminalCloseBtn" class="text-slate-400 hover:text-white px-2 py-0.5 rounded hover:bg-slate-800">✕</button>
+      </div>
+
+      <!-- Terminal Output History -->
+      <div id="terminalHistory" class="p-4 overflow-y-auto space-y-2 flex-1 font-mono text-xs text-slate-300 dir-ltr text-left">
+        <div class="text-slate-400 leading-relaxed">
+          Welcome to <strong class="text-cyan-400">Ehsan Lak's Terminal Interface</strong>.<br>
+          Type <span class="text-emerald-400 font-bold">'help'</span> to see available commands or <span class="text-emerald-400 font-bold">'exit'</span> to close.
+        </div>
+      </div>
+
+      <!-- Terminal Input Line -->
+      <form id="terminalForm" class="p-3 bg-[#070b14] border-t border-slate-800 flex items-center gap-2 dir-ltr">
+        <span class="text-emerald-400 font-mono text-xs font-semibold">visitor@ehsanlak:~$</span>
+        <input id="terminalInput" type="text" autocomplete="off" spellcheck="false" placeholder="type a command (help, whoami, skills, projects, doi)..." class="flex-1 bg-transparent border-none outline-none font-mono text-xs text-white placeholder-slate-600">
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       BibTeX Modal (Citation Box for ISTAM 2026 Paper)
+       ======================================================================== -->
+  <div id="bibtexModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4 modal-backdrop">
+    <div class="tech-card w-full max-w-xl bg-[#090d18] border border-amber-500/40 shadow-2xl p-6">
+      
+      <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-800 font-mono text-xs">
+        <span class="text-amber-400 font-bold">BibTeX Citation · ISTAM 2026</span>
+        <button onclick="closeBibtexModal()" class="text-slate-400 hover:text-white">✕</button>
+      </div>
+
+      <pre id="bibtexCode" class="p-3 rounded-lg bg-black/60 border border-slate-800 font-mono text-xs text-cyan-300 overflow-x-auto leading-relaxed dir-ltr text-left"></pre>
+
+      <div class="mt-4 flex items-center justify-end gap-3 font-mono text-xs">
+        <button onclick="closeBibtexModal()" class="px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700">بستن</button>
+        <button onclick="copyBibtex()" class="px-4 py-1.5 rounded-lg bg-amber-500 text-slate-950 font-bold hover:bg-amber-400">کپی کد ارجاع</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Toast Notification Component
+       ======================================================================== -->
+  <div id="toast" class="fixed bottom-6 left-1/2 z-50 px-5 py-3 rounded-xl bg-slate-900/95 border border-cyan-500/40 backdrop-blur-md shadow-2xl flex items-center gap-3 text-sm text-white font-medium">
+    <span class="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+    <span class="toast-msg">پیام کپی شد</span>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
