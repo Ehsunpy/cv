@@ -76,6 +76,38 @@ python -m http.server 8000
 
 ---
 
+## 🐳 اجرای پروژه با داکر (Docker & Docker Compose)
+
+پروژه به طور کامل داکرایز شده و با یک وب‌سرور سبک، امن و پرسرعت `nginx:alpine` به همراه فشرده‌سازی Gzip و کش استاتیک پیکربندی شده است:
+
+### روش ۱: با استفاده از Docker Compose (توصیه‌شده)
+
+```bash
+# بیلد و اجرای کانتینر در پس‌زمینه
+docker compose up -d
+
+# مشاهده لاگ‌ها
+docker compose logs -f
+
+# متوقف‌سازی
+docker compose down
+```
+
+### روش ۲: با استفاده از Dockerfile مستقیم
+
+```bash
+# ساخت ایمیج داکر
+docker build -t ehsunpy-cv:latest .
+
+# اجرای کانتینر روی پورت ۸۰۸۰
+docker run -d -p 8080:80 --name ehsan-portfolio ehsunpy-cv:latest
+```
+
+سپس پورتفولیو را در آدرس زیر مشاهده نمایید:  
+👉 **[http://localhost:8080](http://localhost:8080)**
+
+---
+
 ## 🌐 انتشار بر روی GitHub Pages
 
 برای فعال‌سازی وبسایت روی دامنه رایگان گیت‌هاب پیجز:
