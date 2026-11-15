@@ -2,7 +2,7 @@
 FROM nginx:alpine
 
 # Metadata
-LABEL maintainer="Ehsan Lak <ehsanlak.ai@gmail.com>"
+LABEL maintainer="Ehsan Lak <ehsanlak279@gmail.com>"
 LABEL description="Official Interactive Portfolio of Ehsan Lak - AI & Robotics Researcher"
 
 # Remove default nginx static assets

@@ -3,6 +3,23 @@
    Designed with terminal aesthetic matching modern developer portfolios
    ========================================================================== */
 
+/* Local Fonts (Vazirmatn & JetBrains Mono) */
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('../fonts/Vazirmatn.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../fonts/JetBrainsMono.woff2') format('woff2');
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --bg-primary: #05070d;
   --bg-panel: #0d121f;

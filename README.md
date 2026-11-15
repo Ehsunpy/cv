@@ -124,4 +124,5 @@ docker run -d -p 8080:80 --name ehsan-portfolio ehsunpy-cv:latest
 - **LinkedIn:** [https://ir.linkedin.com/in/ehsanlak](https://ir.linkedin.com/in/ehsanlak)
 - **Civilica Profile:** [https://civilica.com/p/622818/](https://civilica.com/p/622818/)
 - **ISTAM Journal:** [https://sanad.iau.ir/journal/istam](https://sanad.iau.ir/journal/istam)
-- **Email:** `ehsanlak.ai@gmail.com`
+- **Email (دانشگاهی و آکادمیک):** `ehsan.lak@iau.ir`
+- **Email (مستقیم و پروژه‌های کاری):** `ehsanlak279@gmail.com`

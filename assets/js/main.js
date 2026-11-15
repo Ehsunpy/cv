@@ -373,11 +373,12 @@ function initTerminal() {
 
     contact: `راه‌های ارتباط:
 ---------------------------------------------
-- GitHub   : https://github.com/Ehsunpy
-- LinkedIn : https://ir.linkedin.com/in/ehsanlak
-- Civilica : https://civilica.com/p/622818/
-- Journal  : https://sanad.iau.ir/journal/istam
-- Email    : ehsanlak.ai@gmail.com`
+- GitHub           : https://github.com/Ehsunpy
+- LinkedIn         : https://ir.linkedin.com/in/ehsanlak
+- Civilica         : https://civilica.com/p/622818/
+- Journal          : https://sanad.iau.ir/journal/istam
+- Email (Academic) : ehsan.lak@iau.ir
+- Email (Direct)   : ehsanlak279@gmail.com`
   };
 
   if (form && input && history) {
@@ -437,14 +438,14 @@ function initContactForm() {
     statusBox.classList.remove('hidden');
     statusBox.innerHTML = `
       <div class="font-mono text-xs space-y-1 text-slate-300">
-        <p class="text-cyan-400">$ ./send-message.sh --recipient="ehsanlak.ai@gmail.com"</p>
+        <p class="text-cyan-400">$ ./send-message.sh --to="ehsanlak279@gmail.com" --cc="ehsan.lak@iau.ir"</p>
         <p class="text-yellow-400">[WAIT] Packaging message packet from ${name} &lt;${email}&gt;...</p>
-        <p class="text-emerald-400">[SUCCESS] پیام شما آماده ارسال شد! ایمیل مستقیم فعال گردید.</p>
+        <p class="text-emerald-400">[SUCCESS] پیام شما آماده ارسال شد! نرم‌افزار ایمیل فعال گردید.</p>
       </div>
     `;
 
-    // Create mailto link
-    const mailto = `mailto:ehsanlak.ai@gmail.com?subject=${encodeURIComponent(subject + ' - از وبسایت احسان لک')}&body=${encodeURIComponent('فرستنده: ' + name + '\nایمیل: ' + email + '\n\nمتن پیام:\n' + message)}`;
+    // Create mailto link sending to both emails
+    const mailto = `mailto:ehsanlak279@gmail.com?cc=ehsan.lak@iau.ir&subject=${encodeURIComponent(subject + ' - از وبسایت احسان لک')}&body=${encodeURIComponent('فرستنده: ' + name + '\nایمیل: ' + email + '\n\nمتن پیام:\n' + message)}`;
     
     setTimeout(() => {
       window.location.href = mailto;
